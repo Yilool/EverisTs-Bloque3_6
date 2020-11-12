@@ -2,12 +2,12 @@
 class Person {
   private name: string;
   private age: number;
-  public saySomething: (param: string) => void;
+  public saySomething: <T = string>(args?: T) => void;
 
   constructor(
     name: string,
     age: number,
-    saySomething: (param: string) => void
+    saySomething: <T = string>(param?: T) => void
   ) {
     this.name = name;
     this.age = age;
@@ -21,13 +21,13 @@ class Person {
 //En su constructor, debéis dar un valor a cada propiedad (sin contar "myNameIs") teniendo claro que sus tipos son cadena de texto, número y función que recibe cadena y no devuelve nada, respectivamente.
 // Luego, cread una clase "Developer" que herede de "Person" y que tenga la propiedad pública "bestLanguage". El tipo de la propiedad "bestLanguage" es función que recibe cadena y no devuelve nada.
 class Developer extends Person {
-  public bestLanguage: (param: string) => void;
+  public bestLanguage: <T = string>(args?: T) => void;
 
   constructor(
     name: string,
     age: number,
-    saySomething: (param: string) => void,
-    bestLanguage: (param: string) => void
+    saySomething: <T = string>(param?: T) => void,
+    bestLanguage: <T = string>(param?: T) => void
   ) {
     super(name, age, saySomething);
     this.bestLanguage = bestLanguage;
